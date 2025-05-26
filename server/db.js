@@ -6,8 +6,10 @@ const connection = mysql.createConnection({
     host: process.env.DB_HOST || "localhost",
     user: process.env.DB_USER || "root",
     password: process.env.DB_PASSWORD || "",
-    database: process.env.DB_NAME || "db_blogs", // Указываем имя базы данных
+    database: process.env.DB_NAME || "db_blogs",
+    port: process.env.DB_PORT || 3306,  // вот тут добавь порт
 });
+
 
 // Подключаемся к базе данных
 connection.connect((err) => {
