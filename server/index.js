@@ -1,9 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const bcrypt = require("bcryptjs"); // Исправлено на bcryptjs
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const connection = require("./db"); // Подключаем БД
-require("dotenv").config(); // Загружаем переменные окружения
+const connection = require("./db");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -34,7 +34,7 @@ const verifyToken = (req, res, next) => {
 app.post("/register", async (req, res) => {
 
     try {
-        const { username, email, password, role } = req.body;
+        const { username, email, password } = req.body;
 
         const checkEmailQuery = "SELECT email FROM users WHERE email = ?";
         connection.query(checkEmailQuery, [email], async (err, results) => {
@@ -131,7 +131,7 @@ app.get("/api/profile", (req, res) => {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET); // Декодируем токен
-        const query = "SELECT id, username, email, role, avatar FROM users WHERE id = ?";
+        const query = "SELECT id, username, email, avatar FROM users WHERE id = ?";
 
         connection.query(query, [decoded.id], (err, results) => {
             if (err) {
