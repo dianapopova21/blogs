@@ -18,7 +18,7 @@ function App() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000")
+            .get("https://blogs-production-99dc.up.railway.app")
             .then((response) => {
                 setMessage(response.data);
             })
