@@ -13,7 +13,7 @@ const HomePage = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/blogs?category=${category}`);
+                const response = await fetch(`https://blogs-production-99dc.up.railway.app/api/blogs?category=${category}`);
                 const data = await response.json();
                 setBlogs(data);
             } catch (error) {

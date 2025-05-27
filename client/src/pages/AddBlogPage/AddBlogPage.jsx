@@ -47,7 +47,7 @@ const AddBlogPage = () => {
         formData.append("image", image);
 
         try {
-            const response = await fetch("http://localhost:5000/api/upload-image", {
+            const response = await fetch("https://blogs-production-99dc.up.railway.app/api/upload-image", {
                 method: "POST",
                 body: formData,
                 headers: {
@@ -66,7 +66,7 @@ const AddBlogPage = () => {
                     image: data.imageUrl,
                 };
 
-                const blogResponse = await fetch("http://localhost:5000/api/blogs", {
+                const blogResponse = await fetch("https://blogs-production-99dc.up.railway.app/api/blogs", {
                     method: "POST",
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem("token")}`,

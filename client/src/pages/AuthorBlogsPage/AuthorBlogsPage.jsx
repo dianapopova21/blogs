@@ -22,7 +22,7 @@ const AuthorBlogsPage = () => {
     useEffect(() => {
         const fetchBlogsByAuthor = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/api/authors/${id}`);
+                const res = await fetch(`https://blogs-production-99dc.up.railway.app/api/authors/${id}`);
                 const data = await res.json();
                 setBlogs(data);
                 if (data.length > 0) {

@@ -27,7 +27,7 @@ const ProfilePage = () => {
 
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.post("http://localhost:5000/api/upload-avatar", formData, {
+            const response = await axios.post("https://blogs-production-99dc.up.railway.app/api/upload-avatar", formData, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -48,7 +48,7 @@ const ProfilePage = () => {
         try {
             const token = localStorage.getItem("token");
             const response = await axios.put(
-                "http://localhost:5000/api/update-username",
+                "https://blogs-production-99dc.up.railway.app/api/update-username",
                 { username },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

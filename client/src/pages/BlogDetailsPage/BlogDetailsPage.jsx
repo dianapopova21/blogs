@@ -17,7 +17,7 @@ const BlogDetailsPage = () => {
         if (user) {
             try {
                 const method = isFavorite ? "DELETE" : "POST";
-                await fetch("http://localhost:5000/api/favorites", {
+                await fetch("https://blogs-production-99dc.up.railway.app/api/favorites", {
                     method,
                     headers: {
                         "Content-Type": "application/json",

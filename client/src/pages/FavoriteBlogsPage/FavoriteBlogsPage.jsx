@@ -14,7 +14,7 @@ const FavoriteBlogsPage = () => {
         const fetchFavorites = async () => {
             try {
                 if (user) {
-                    const res = await fetch(`http://localhost:5000/api/favorites/${user.id}`);
+                    const res = await fetch(`https://blogs-production-99dc.up.railway.app/api/favorites/${user.id}`);
                     const data = await res.json();
                     setBlogs(data);
                 } else {
@@ -25,7 +25,7 @@ const FavoriteBlogsPage = () => {
                         return;
                     }
 
-                    const res = await fetch("http://localhost:5000/api/blogs/byIds", {
+                    const res = await fetch("https://blogs-production-99dc.up.railway.app/api/blogs/byIds", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
