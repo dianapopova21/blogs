@@ -54,7 +54,7 @@ const LoginForm = () => {
         if (!validateForm()) return;
 
         try {
-            const response = await fetch("https://blogs-production-99dc.up.railway.app/login", {
+            const response = await fetch("https://blogs-production-99dc.up.railway.app/api/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData)

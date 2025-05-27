@@ -70,7 +70,7 @@ const RegistrationForm = () => {
         if (!validateForm()) return;
 
         try {
-            const response = await axios.post("https://blogs-production-99dc.up.railway.app/register", formData);
+            const response = await axios.post("https://blogs-production-99dc.up.railway.app/api/register", formData);
 
             setSuccessMessage(response.data.message);
 
