@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem("token");
 
         if (token) {
-            axios.get("http://localhost:5000/api/profile", {
+            axios.get("https://blogs-production-99dc.up.railway.app/api/profile", {
                 headers: { Authorization: `Bearer ${token}` },
             })
                 .then(response => {
