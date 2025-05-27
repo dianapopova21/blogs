@@ -5,7 +5,7 @@ const useDeleteBlog = () => {
 
     const deleteBlog = async (id, token) => {
         try {
-            const res = await fetch(`http://localhost:5000/api/blogs/${id}`, {
+            const res = await fetch(`https://blogs-production-99dc.up.railway.app/api/blogs/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`,

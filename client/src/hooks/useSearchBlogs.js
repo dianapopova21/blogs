@@ -15,7 +15,7 @@ const useSearchBlogs = (query) => {
             setError(null);
 
             try {
-                const res = await fetch(`http://localhost:5000/api/blogs/search?query=${encodeURIComponent(query)}`);
+                const res = await fetch(`https://blogs-production-99dc.up.railway.app/api/blogs/search?query=${encodeURIComponent(query)}`);
                 const data = await res.json();
 
                 if (!res.ok) {

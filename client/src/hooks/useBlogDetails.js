@@ -7,12 +7,12 @@ const useBlogDetails = (id, user) => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/api/blogs/${id}`);
+                const res = await fetch(`https://blogs-production-99dc.up.railway.app/api/blogs/${id}`);
                 const data = await res.json();
                 setBlog(data);
 
                 if (user) {
-                    const favRes = await fetch(`http://localhost:5000/api/favorites?userId=${user.id}`);
+                    const favRes = await fetch(`https://blogs-production-99dc.up.railway.app/api/favorites?userId=${user.id}`);
                     const favData = await favRes.json();
                     setIsFavorite(favData.some(b => b.blog_id === parseInt(id)));
                 } else {
