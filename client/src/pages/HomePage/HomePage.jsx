@@ -10,12 +10,21 @@ const HomePage = () => {
     const [blogs, setBlogs] = useState([]);
     const [category, setCategory] = useState("All");
 
+    const {
+        currentBlogs,
+        currentPage,
+        totalPages,
+        goToPage,
+        setCurrentPage // ⬅️ добавили
+    } = usePaginatedBlogs(blogs, 6);
+
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
                 const response = await fetch(`https://blogs-production-99dc.up.railway.app/api/blogs?category=${category}`);
                 const data = await response.json();
                 setBlogs(data);
+                setCurrentPage(1); // ⬅️ сбрасываем страницу на первую при получении новых блогов
             } catch (error) {
                 console.error("Error loading blogs:", error);
             }
@@ -23,14 +32,6 @@ const HomePage = () => {
 
         fetchBlogs();
     }, [category]);
-
-    const {
-        currentBlogs,
-        currentPage,
-        totalPages,
-        goToPage,
-    } = usePaginatedBlogs(blogs, 6);
-
 
     useEffect(() => {
         window.scrollTo(0, 0);

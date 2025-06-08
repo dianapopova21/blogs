@@ -1,0 +1,19 @@
+[33m23c74f2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to head~2
+[33m2b28123[m HEAD@{1}: reset: moving to head~2
+[33m5c96092[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{2}: commit: fixed server problem
+[33m886593f[m HEAD@{3}: commit: added route for similar blogs
+[33m2b28123[m HEAD@{4}: commit: The last problem is fixed! (I hope)
+[33md5f0a4c[m HEAD@{5}: commit: Update project
+[33m23c74f2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{6}: commit: Update project
+[33m8c1f8ea[m HEAD@{7}: commit: Updating App
+[33mea0b9b0[m HEAD@{8}: commit: Updating context
+[33me9d9aa1[m HEAD@{9}: commit: Updating addresses for correct database operation
+[33m5f2e228[m HEAD@{10}: commit: Updating addresses for correct database operation
+[33m99cf236[m HEAD@{11}: commit: ix connection: add port from env
+[33m024c7c1[m HEAD@{12}: commit: pdate connection settings for ailway
+[33mcb16161[m HEAD@{13}: commit: pdate connection settings for ailway
+[33ma5a0d25[m HEAD@{14}: commit: pdate connection settings for ailway
+[33mda1d801[m HEAD@{15}: commit: fix: add sass dependency to fix build error on ercel
+[33m3241b8f[m HEAD@{16}: commit: Add bcryptjs dependency
+[33mc2ca0b9[m HEAD@{17}: Branch: renamed refs/heads/master to refs/heads/main
+[33mc2ca0b9[m HEAD@{19}: commit (initial): Initial commit

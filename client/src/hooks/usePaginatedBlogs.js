@@ -22,7 +22,9 @@ const usePaginatedBlogs = (blogs, blogsPerPage = 6) => {
         currentPage,
         totalPages,
         goToPage,
+        setCurrentPage,
     };
+
 };
 
 export default usePaginatedBlogs;

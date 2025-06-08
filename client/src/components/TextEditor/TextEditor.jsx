@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./TextEditor.scss";
 import {
     CiTextAlignCenter,
@@ -6,8 +6,32 @@ import {
     CiTextAlignRight,
 } from "react-icons/ci";
 
+const MAX_LENGTH = 10000;
+
 const TextEditor = ({ setContent }) => {
     const editorRef = useRef(null);
+    const [charCount, setCharCount] = useState(0);
+
+    const getPlainTextLength = (html) => {
+        const div = document.createElement("div");
+        div.innerHTML = html;
+        return div.textContent.length;
+    };
+
+    const updateContent = () => {
+        const html = editorRef.current.innerHTML;
+        const length = getPlainTextLength(html);
+        if (length <= MAX_LENGTH) {
+            setCharCount(length);
+            setContent(html);
+        } else {
+            // Если превышено — обрезаем и обновляем
+            const text = editorRef.current.innerText.slice(0, MAX_LENGTH);
+            editorRef.current.innerText = text;
+            setCharCount(MAX_LENGTH);
+            setContent(editorRef.current.innerHTML);
+        }
+    };
 
     const toggleStyle = (command, e) => {
         e.preventDefault();
@@ -41,10 +65,6 @@ const TextEditor = ({ setContent }) => {
         updateContent();
     };
 
-    const updateContent = () => {
-        setContent(editorRef.current.innerHTML);
-    };
-
     return (
         <div className="text-editor-container">
             <div className="toolbar">
@@ -64,6 +84,7 @@ const TextEditor = ({ setContent }) => {
                     <CiTextAlignRight />
                 </button>
             </div>
+
             <div
                 ref={editorRef}
                 className="editable-div"
@@ -72,6 +93,12 @@ const TextEditor = ({ setContent }) => {
                 onInput={updateContent}
             />
 
+            <div className="char-counter">
+                {charCount}/{MAX_LENGTH} characters
+                {charCount >= MAX_LENGTH && (
+                    <span className="limit-warning"> – maximum reached</span>
+                )}
+            </div>
         </div>
     );
 };

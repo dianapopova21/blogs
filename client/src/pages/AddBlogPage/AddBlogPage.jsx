@@ -33,7 +33,14 @@ const AddBlogPage = () => {
 
         if (!image) newErrors.image = "Select an image";
         if (!category) newErrors.category = "Select a category";
-        if (!content || content.replace(/<[^>]*>/g, "").trim() === "") newErrors.content = "Enter content";
+        const plainText = content.replace(/<[^>]*>/g, "").trim();
+        if (!plainText) {
+            newErrors.content = "Enter content";
+        } else if (plainText.length < 300) {
+            newErrors.content = "Content must be at least 300 characters";
+        } else if (plainText.length > 10000) {
+            newErrors.content = "Content must be no more than 10,000 characters";
+        }
         if (!keywords.trim()) newErrors.keywords = "Enter keywords";
 
         if (Object.keys(newErrors).length > 0) {
